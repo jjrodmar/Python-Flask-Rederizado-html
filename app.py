@@ -70,6 +70,10 @@ def userId(id):
     resp.status_code=200
     claseConn.CerrarConect()
     return resp   
+@app.route("/add1")
+def Altas1():
+    return render_template('add.html')
+
 
 #ALTAS @app.route('/<int:year>/<int:month>/<title>')
 # def article(year, month, title):
