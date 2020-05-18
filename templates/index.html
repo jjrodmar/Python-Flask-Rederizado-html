@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LInks App</title>
+
+ 
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+  <body>
+    <nav class="nav">
+      <a class="nav-link active" href="/list">List</a>
+      <a class="nav-link" href="/add">Añadir</a>
+      <a class="nav-link" href="#">Link</a>
+      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    </nav>
+<div class="container p-4">
+  <div class="row">
+    <div class="col-md-3 mb-3">
+      <div class="card text-center h-100">
+          <div class="card-body">
+            <form action="/add" method="POST">
+              <div class="form-group">
+                  <input type="text" class="form-control" name="nombre" placeholder="nombre" autofocus>
+               </div>
+               <div class="form-group">
+                   <input type="text" class="form-control" name="apellido" placeholder="apellido">
+               </div>
+               <div class="form-group">
+                   <button class="btn btn-success btn-block">
+                       Salvar
+                   </button>
+
+               </div>
+           </form>
+          </div>
+      </div>
+      </div>
+    
+    {% for dato in datos %}
+    <div class="col-md-3 mb-3">
+      <div class="card text-center h-100">
+          <div class="card-body">
+            <form action="/edit" method="POST">
+             <div class="form-group">
+              <input type="text" class="form-control" name="id"  value="{{dato[0]}}" hidden>
+               <div class="form-group">
+                <input type="text" class="form-control" name="nombre" placeholder="nombre" value="{{dato[1]}}">
+               </div>
+               <div class="form-group">
+                <input type="text" class="form-control" name="apellido" placeholder="apellido" value="{{dato[2]}}">
+               </div>
+              <a href="/delete/{{dato[0]}}" class="btn btn-danger" >Borrar</a>
+              <br>
+              <br>
+              <div class="form-group">
+                <button class="btn btn-success btn-block">
+                    Modificar
+                </button>
+              </div>
+             </div>
+            </form>
+
+ 
+          </div>
+      </div>
+  </div>
+       
+      {% endfor %}
+    
+    </div>
+  </div>
+  </body>
+</html>
