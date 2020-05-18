@@ -122,6 +122,8 @@ def delete(id):
         claseConn=ClaseConect()
         claseConn.EjecutarSql("delete from personal where id="+str(id) )
         datos = claseConn.DevolverUno()
+        #gdgdghdj
+        
         claseConn.RealizaCambios()
         print(datos)
     except Exception:
