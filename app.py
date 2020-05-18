@@ -28,7 +28,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "Hola Don Pepito!"
+    return redirect('/list')
+   # return "Hola Don Pepito!"
 '''@app.route("/<name>")
 def helloName(name):
     return "Hola Don "+str(name)'''
@@ -70,8 +71,9 @@ def userId(id):
     resp.status_code=200
     claseConn.CerrarConect()
     return resp   
-@app.route("/add1")
-def Altas1():
+
+@app.route("/add")
+def AltasAdd():
     return render_template('add.html')
 
 
